@@ -1,0 +1,31 @@
+Purpose:
+to set up repeatable development environment to run spark tests
+
+Dependency:
+- Fabric3
+
+1.To deploy standalone spark:
+fab up
+
+After that visit master on http://localhost:8080/
+Visit worker on http://localhost:8081/
+
+2.To run script src/test.py in spark:
+fab run
+
+Visit running app on http://localhost:4040/
+
+3.To connect to clickhouse via shell:
+fab ch
+
+4.To connect to postgresql via shell:
+fab pg  # enter password 'password'
+
+5.To connect to clickhouse via PyCharm:
+- download clickhouse driver '*.jar'
+- set it in connection settings as Driver
+- set url for connection: 'jdbc:clickhouse://localhost:8123'
+
+
+NOTES:
+- no need to list pyspark in requirements.txt, as spark-submit makes it available for running script
